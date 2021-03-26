@@ -1,0 +1,42 @@
+# settings
+set adjust-open                "best-fit"
+set window-height              "980"
+set window-width               "900"
+set selection-clipboard        "clipboard"
+set statusbar-basename         "true"
+set pages-per-row              "1"
+set zoom-min                   "50"
+set vertical-center            "true"
+#set page-padding               "2" # blank space between pages
+set guioptions none
+
+# latex
+set synctex true
+set synctex-editor-command "vim +%{line} %{input}"
+
+# stop at page boundries
+set scroll-page-aware "true"
+set scroll-full-overlap 0.01
+set scroll-step 100
+
+
+# appearance
+set font                        "IBM Plex Mono 14"
+set default-bg                  "#1a252b"
+set default-fg                  "#e8e8e8"
+
+set highlight-color             "#5f819d"
+set highlight-active-color      "#555aa7"
+
+set statusbar-fg                "#a3a3a3"
+set statusbar-bg                "#242f31"
+
+set recolor-lightcolor          "#0a0b09"
+set recolor-darkcolor           "#d0d0d0"
+set recolor                     "true"     #This define if the pdf will be dark ou light
+
+# setting recolor-keep true will keep any color your pdf has.
+# if it is false, itll just be black and white
+set recolor-keephue             "false"
+
+# vim: set ft=conf:

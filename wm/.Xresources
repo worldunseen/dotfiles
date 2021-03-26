@@ -1,0 +1,52 @@
+URxvt.scrollBar: 0
+!URxvt.font: xft: Anonymous Pro:style=Regular:size=12
+!URxvt.font: xft: Fira Code:style=Regular:size=10
+URxvt.font: xft: Iosevka:style=Regular:size=12
+Emacs.font: Iosevka-12:style=Regular
+URxvt.internalBorder: 8
+
+
+Xft.dpi: 96
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+! special
+*.foreground:   #d0d0d0
+*.background:   #0a0b09
+*.cursorColor:  #d0d0d0
+
+! black
+*.color0:       #2c4001
+*.color8:       #373b41
+
+! red
+*.color1:       #5e7b24
+*.color9:       #5e7b24
+
+! green
+*.color2:       #89a64b
+*.color10:      #89a64b
+
+! yellow
+*.color3:       #728c3b
+*.color11:      #728c3b
+
+! blue
+*.color4:       #8bb530
+*.color12:      #8bb530
+
+! magenta
+*.color5:       #728c3b
+*.color13:      #728c3b
+
+! cyan
+*.color6:       #b6b450
+*.color14:      #b6b450
+
+! white
+*.color7:       #d0d0d0
+*.color15:      #c5c8c6
