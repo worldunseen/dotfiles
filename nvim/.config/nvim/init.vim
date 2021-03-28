@@ -198,6 +198,7 @@ map <leader>pp :setlocal paste!<cr>
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
+
     " Looks
     Plug 'w0ng/vim-hybrid'
     Plug 'itchyny/lightline.vim'
@@ -226,8 +227,6 @@ call plug#begin('~/.vim/plugged')
     " Latex
     Plug 'xuhdev/vim-latex-live-preview'
 
-    " File manager
-    Plug 'francoiscabrol/ranger.vim'
 call plug#end()
 
 
@@ -286,11 +285,6 @@ augroup END
 " Latex
 let g:livepreview_previewer = 'zathura'
 let g:livepreview_cursorhold_recompile = 0
-
-" Ranger
-let g:ranger_map_keys = 0
-map <leader>f :Ranger<CR>
-let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
 
 " Gutentags
 let g:gutentags_cache_dir = '~/.cache/gutentags/'
