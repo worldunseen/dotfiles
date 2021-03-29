@@ -40,7 +40,7 @@ endif
 set ruler
 
 " Height of the command bar
-set cmdheight=2
+set cmdheight=1
 
 " A buffer becomes hidden when it is abandoned
 set hidden
@@ -70,6 +70,9 @@ set mat=2
 
 " numbering
 set number relativenumber
+
+" add a line highlight for current line
+set cursorline
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -200,14 +203,20 @@ map <leader>pp :setlocal paste!<cr>
 call plug#begin('~/.vim/plugged')
 
     " Looks
+    
+    " themes
     Plug 'w0ng/vim-hybrid'
-    Plug 'itchyny/lightline.vim'
-    Plug 'junegunn/goyo.vim'
+    Plug 'arcticicestudio/nord-vim'
     Plug 'ayu-theme/ayu-vim'
+
+    " statusline
+    Plug 'itchyny/lightline.vim'
+    Plug 'mengelbrecht/lightline-bufferline'
 
     " Prose
     Plug 'reedes/vim-pencil'
     Plug 'godlygeek/tabular'
+    Plug 'junegunn/goyo.vim'
 
     " Tags
     Plug 'ludovicchabant/vim-gutentags'
@@ -223,9 +232,13 @@ call plug#begin('~/.vim/plugged')
 
     " Git
     Plug 'tpope/vim-fugitive'
+    Plug 'mhinz/vim-signify'
 
     " Latex
     Plug 'xuhdev/vim-latex-live-preview'
+
+    " Fuzzy finder
+    Plug 'Shougo/denite.nvim'
 
 call plug#end()
 
@@ -236,13 +249,9 @@ call plug#end()
 " Enable syntax highlighting
 syntax enable 
 
-" Enable 256 colors palette in Gnome Terminal
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
-
-let g:hybrid_custom_term_colors = 1
-colorscheme hybrid
+" let g:hybrid_custom_term_colors = 1
+" colorscheme hybrid
+colorscheme nord
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -250,16 +259,27 @@ colorscheme hybrid
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " lightline
 set noshowmode
+set showtabline=2
 
 let g:lightline = {
-      \ 'colorscheme': '16color',
+      \ 'colorscheme': 'nord',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gutenstatus', 'cocstatus', 'currentfunction',
-      \               'readonly', 'filename', 'modified' ] ],
+      \               'readonly' ] ],
       \   'right': [ [ 'lineinfo' ],
       \              [ 'percent' ],
       \              [  'fugitive', 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'tabline': {
+      \   'left': [ [ 'buffers' ] ],
+      \   'right': []
+      \ },
+      \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers'
+      \ },
+      \ 'component_type': {
+      \   'buffers': 'tabsel'
       \ },
       \ 'component_function': {
       \   'cocstatus': 'coc#status',
@@ -275,7 +295,7 @@ vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
 " vim-pencil
-let g:pencil#map#suspend_af = 'K'   " default is no mapping
+let g:pencil#map#suspend_af = 'K'
 augroup pencil
   autocmd!
   autocmd FileType markdown,mkd call pencil#init()
@@ -288,6 +308,26 @@ let g:livepreview_cursorhold_recompile = 0
 
 " Gutentags
 let g:gutentags_cache_dir = '~/.cache/gutentags/'
+
+" Denite
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+  nnoremap <silent><buffer><expr> <CR>
+  \ denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> d
+  \ denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> p
+  \ denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> <Esc>
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> i
+  \ denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> <Space>
+  \ denite#do_map('toggle_select').'j'
+endfunction
+
+call denite#custom#var('file/rec', 'command',
+	\ ['rg', '--files', '--glob', '!.git', '--color', 'never'])
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

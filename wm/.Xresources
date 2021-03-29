@@ -1,10 +1,4 @@
-URxvt.scrollBar: 0
-!URxvt.font: xft: Anonymous Pro:style=Regular:size=12
-!URxvt.font: xft: Fira Code:style=Regular:size=10
-URxvt.font: xft: Iosevka:style=Regular:size=12
-Emacs.font: Iosevka-12:style=Regular
-URxvt.internalBorder: 8
-
+Emacs.font: IBM Plex Mono-14
 
 Xft.dpi: 96
 Xft.autohint: 0
