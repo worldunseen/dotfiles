@@ -71,9 +71,6 @@ set mat=2
 " numbering
 set number relativenumber
 
-" add a line highlight for current line
-set cursorline
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files, backups and undo
