@@ -187,17 +187,17 @@ endif
 " Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Pressing <leader>sp will toggle and untoggle spell checking
-map <leader>sp :setlocal spell!<cr>
+map <silent><leader>sp :setlocal spell!<cr>
 
 " Shortcuts using <leader>
-map <leader>s? z=
+map <silent><leader>s? z=
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Toggle paste mode on and off
-map <leader>pp :setlocal paste!<cr>
+map <silent><leader>pp :setlocal paste!<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -394,7 +394,7 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nmap <silent><leader>rn <Plug>(coc-rename)
 
 " Listing
 nmap <silent><leader>o :CocList outline<cr>
