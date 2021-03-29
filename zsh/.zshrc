@@ -38,7 +38,7 @@ alias ssh="kitty +kitten ssh"
 alias docker="podman"
 # if [ -n "$TMUX" ]; then alias ranger='ranger -c'; fi  # fix broken image preview
 
-export PATH="$PATH:/home/$USER/bin:/home/$USER/.local/bin:"
+export PATH="$PATH:/home/$USER/bin:"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
