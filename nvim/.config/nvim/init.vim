@@ -138,7 +138,7 @@ endfunction
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Moving around, tabs, windows and buffers
+" Moving around/closing, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Toggle highlight when <leader><leader> is pressed
 nnoremap <silent><expr> <leader><leader> (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
@@ -151,6 +151,9 @@ map <C-l> <C-W>l
 
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" Easy close of current whatever (buffer, window, tab, etc.)
+nnoremap <silent><leader>c :Sayonara<CR>
 
 
 """"""""""""""""""""""""""""""
@@ -229,6 +232,7 @@ call plug#begin('~/.vim/plugged')
     " Typing conveniences
     Plug 'terryma/vim-expand-region'
     Plug 'machakann/vim-sandwich'
+    Plug 'mhinz/vim-sayonara'
 
     " Git
     Plug 'tpope/vim-fugitive'
