@@ -229,10 +229,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'jiangmiao/auto-pairs'
     Plug 'gentoo/gentoo-syntax'
 
-    " Typing conveniences
+    " Typing (in)conveniences
     Plug 'terryma/vim-expand-region'
     Plug 'machakann/vim-sandwich'
     Plug 'mhinz/vim-sayonara'
+    Plug 'takac/vim-hardtime'
 
     " Git
     Plug 'tpope/vim-fugitive'
@@ -261,6 +262,9 @@ colorscheme nord
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Configs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Hard mode
+let g:hardtime_default_on = 1
+
 " lightline
 set noshowmode
 set showtabline=2
