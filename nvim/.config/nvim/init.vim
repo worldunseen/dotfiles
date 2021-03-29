@@ -315,6 +315,10 @@ let g:livepreview_cursorhold_recompile = 0
 let g:gutentags_cache_dir = '~/.cache/gutentags/'
 
 " Denite
+" Keybinds
+nmap <silent><C-p> :Denite file/rec<CR>
+nmap <silent><leader>b :Denite buffer<CR>
+
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> <CR>
@@ -331,8 +335,43 @@ function! s:denite_my_settings() abort
   \ denite#do_map('toggle_select').'j'
 endfunction
 
+autocmd FileType denite-filter call s:denite_filter_my_settings()
+	function! s:denite_filter_my_settings() abort
+	  imap <silent><buffer> <Esc> <Plug>(denite_filter_quit)
+	  nmap <silent><buffer> <Esc> <Plug>(denite_filter_quit)
+endfunction
+
+" Filters with ripgrep
 call denite#custom#var('file/rec', 'command',
 	\ ['rg', '--files', '--glob', '!.git', '--color', 'never'])
+
+" Use ripgrep in place of "grep"
+call denite#custom#var('grep', 'command', ['rg'])
+
+" Custom options for ripgrep
+"   --vimgrep:  Show results with every match on it's own line
+"   --hidden:   Search hidden directories and files
+"   --heading:  Show the file name above clusters of matches from each file
+"   --S:        Search case insensitively if the pattern is all lowercase
+call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--heading', '-S'])
+
+" Recommended defaults for ripgrep via Denite docs
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+" Remove date from buffer list
+call denite#custom#var('buffer', 'date_format', '')
+
+" Denite options
+call denite#custom#option('_', 'prompt', '❯ ')
+call denite#custom#option('_', 'split', 'floating')
+call denite#custom#option('_', 'source_names', 'short')
+call denite#custom#option('_', 'start_filter', 1)
+call denite#custom#option('_', 'auto_resize', 1)
+call denite#custom#option('_', 'vertical_preview', 1)
+call denite#custom#option('_', 'highlight_matched_char', 'QuickFixLine')
+call denite#custom#option('_', 'highlight_matched_range', 'Visual')
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
