@@ -35,6 +35,7 @@ alias vim=nvim
 alias kgitdiff='git difftool --no-symlinks --dir-diff'
 alias d="kitty +kitten diff"
 alias ssh="kitty +kitten ssh"
+alias hg='kitty +kitten hyperlinked_grep'
 alias docker="podman"
 # if [ -n "$TMUX" ]; then alias ranger='ranger -c'; fi  # fix broken image preview
 
