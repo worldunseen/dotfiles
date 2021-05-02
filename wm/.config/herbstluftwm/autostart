@@ -27,7 +27,7 @@ hc keybind $Mod-Return spawn kitty
 hc keybind $Mod-e spawn thunar 
 # hc keybind $Mod-Shift-e spawn kitty ranger
 hc keybind $Mod-Shift-space spawn ~/.config/herbstluftwm/status.sh
-hc keybind $Mod-space spawn rofi -m -2 -show run -disable-history -font "IBM Plex Mono 14"
+hc keybind $Mod-space spawn rofi -m -1 -show run -disable-history
 hc keybind $Mod-m spawn ~/.config/herbstluftwm/bat_stat.sh
 hc keybind $Mod-v spawn ~/.config/herbstluftwm/clip-mpv.sh
 
@@ -121,6 +121,10 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 hc rule title='Steam Keyboard' manage=off
 hc rule title='Steam' tag=4
 
+ACTIVE='#81A1C1'
+NORMAL0='#3B4252'
+NORMAL1='#434C5E'
+
 # FORM
 # ---------------------------
 hc attr theme.tiling.reset 1
@@ -140,9 +144,9 @@ hc set frame_normal_opacity 0
 # windows
 hc set window_border_width 4
 hc set window_border_inner_width 0
-hc set window_border_active_color '#C29C51'
-hc set window_border_normal_color '#222222'
-hc set window_border_inner_color '#222222'
+hc set window_border_active_color $ACTIVE
+hc set window_border_normal_color $NORMAL0
+hc set window_border_inner_color $NORMAL0
 hc set window_gap 0
 hc set smart_window_surroundings 0
 
@@ -153,25 +157,25 @@ hc set mouse_recenter_gap 0
 hc set raise_on_focus 1
 hc attr theme.floating.border_width 4
 hc attr theme.floating.outer_width 0
-hc attr theme.floating.outer_color '#222222'
+hc attr theme.floating.outer_color $NORMAL0
 
 # colors
 # focused
-hc attr theme.active.color '#C29C51'
-hc set frame_border_active_color '#222222'
-hc set frame_bg_active_color '#C29C51'
+hc attr theme.active.color $ACTIVE
+hc set frame_border_active_color $NORMAL0
+hc set frame_bg_active_color $ACTIVE
 hc attr theme.urgent.color orange
 
 # unfocused
-hc attr theme.normal.color '#454545'
-hc set frame_border_normal_color '#222222'
-hc set frame_bg_normal_color '#222222'
+hc attr theme.normal.color $NORMAL1
+hc set frame_border_normal_color $NORMAL0
+hc set frame_bg_normal_color $NORMAL0
 #hc attr theme.inner_width 1
 #hc attr theme.outer_width 1
-#hc attr theme.outer_color '#222222'
-#hc attr theme.inner_color '#222222'
+#hc attr theme.outer_color $NORMAL0
+#hc attr theme.inner_color $NORMAL0
 #hc attr theme.border_width 3
-#hc attr theme.background_color '#222222'
+#hc attr theme.background_color $NORMAL0
 
 hc set default_frame_layout 0
 
@@ -195,7 +199,7 @@ hc pad 0 0 0 0 0
 
 # START ON LAUNCH
 # ---------------------------
-feh --bg-fill ~/.config/herbstluftwm/wall.jpg &
+feh --bg-fill ~/.config/herbstluftwm/wall4.jpg &
 if hc silent new_attr bool my_not_first_autostart ; then
   #picom &
   unclutter -idle 3 &

@@ -94,9 +94,9 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
-" Linebreak on 100 characters
+" Linebreak on 79 characters
 set lbr
-set tw=80
+set tw=79
 
 set ai "Auto indent
 set si "Smart indent
@@ -166,6 +166,10 @@ set laststatus=2
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
+" Make gt and gT cycle through buffers, not tabs
+nmap <silent>gt :bn<CR>
+nmap <silent>gT :bp<CR>
+
 " Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()
     let save_cursor = getpos(".")
@@ -217,6 +221,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'reedes/vim-pencil'
     Plug 'godlygeek/tabular'
     Plug 'junegunn/goyo.vim'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
     " Tags
     Plug 'ludovicchabant/vim-gutentags'
@@ -230,7 +235,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'terryma/vim-expand-region'
     Plug 'machakann/vim-sandwich'
     Plug 'mhinz/vim-sayonara'
-    Plug 'takac/vim-hardtime'
 
     " Git
     Plug 'tpope/vim-fugitive'
@@ -241,6 +245,7 @@ call plug#begin('~/.vim/plugged')
 
     " Fuzzy finder
     Plug 'Shougo/denite.nvim'
+    Plug 'neoclide/coc-denite'
 
 call plug#end()
 
@@ -259,9 +264,6 @@ colorscheme nord
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Configs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Hard mode
-let g:hardtime_default_on = 1
-
 " lightline
 set noshowmode
 set showtabline=2
