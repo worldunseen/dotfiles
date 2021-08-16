@@ -18,8 +18,9 @@ xinput set-prop "TPPS/2 IBM TrackPoint" 'libinput Accel Speed' -0.35
 # NVIDIA
 # ---------------------------
 xrandr --setprovideroutputsource modesetting NVIDIA-0
-if [[ $(xrandr | grep "^DP-3\.1.* connected") ]]; then
-  xrandr --output DP-3.1 --auto --output eDP-1-1 --auto --pos 3840x1080 --dpi 96
+if [[ $(xrandr | grep "^DP-4 connected") ]]; then
+  # xrandr --output DP-3.1 --auto --output eDP-1-1 --auto --pos 3840x1080 --dpi 128
+  xrandr --output DP-4 --auto --output eDP-1-1 --off --dpi 96
 else
   xrandr --auto --dpi 128
 fi

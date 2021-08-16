@@ -27,7 +27,7 @@ bindkey '^R' history-incremental-search-backward
 export KEYTIMEOUT=1
 
 # Environment variables
-export EDITOR=nvim
+export EDITOR=emacs
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 
 # Aliases/Paths
@@ -36,23 +36,6 @@ alias kgitdiff='git difftool --no-symlinks --dir-diff'
 alias d="kitty +kitten diff"
 alias ssh="kitty +kitten ssh"
 alias hg='kitty +kitten hyperlinked_grep'
-alias docker="podman"
 # if [ -n "$TMUX" ]; then alias ranger='ranger -c'; fi  # fix broken image preview
 
 export PATH="$PATH:/home/$USER/bin:"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/mf/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/mf/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/mf/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/mf/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-

@@ -22,7 +22,7 @@ hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 
 # execute
-hc keybind $Mod-Return spawn kitty
+hc keybind $Mod-Return spawn kitty -1
 # hc keybind $Mod-Shift-Return spawn kitty tmux attach
 hc keybind $Mod-e spawn thunar 
 # hc keybind $Mod-Shift-e spawn kitty ranger
@@ -96,6 +96,7 @@ hc keybind Alt-Tab cycle
 hc keybind $Mod-s floating toggle
 hc keybind $Mod-f fullscreen toggle
 hc keybind $Mod-p pseudotile toggle
+hc keybind $Mod-Shift-f set_attr clients.focus.floating toggle
 #hc keybind $Mod-m emit_hook minimal_layout
 # The following cycles through the available layouts within a frame, but skips
 # layouts, if the layout change wouldn't affect the actual window positions.
@@ -114,12 +115,12 @@ hc mousebind $Mod-Button3 resize
 hc unrule -F
 #hc rule class=XTerm tag=3 # move all xterms to tag 3
 hc rule focus=on # normally focus new clients
-hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
-#hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' manage=off
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 hc rule title='Steam Keyboard' manage=off
 hc rule title='Steam' tag=4
+hc rule class='mpv' floating=on
 
 ACTIVE='#81A1C1'
 NORMAL0='#3B4252'
@@ -199,7 +200,7 @@ hc pad 0 0 0 0 0
 
 # START ON LAUNCH
 # ---------------------------
-feh --bg-fill ~/.config/herbstluftwm/wall4.jpg &
+# feh --bg-fill ~/.config/herbstluftwm/wall4.jpg &
 if hc silent new_attr bool my_not_first_autostart ; then
   #picom &
   unclutter -idle 3 &
