@@ -1,0 +1,8 @@
+---
+- name: Ensure that Thunderbird is present
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - thunderbird
+      - thunderbird-wayland
+    state: present

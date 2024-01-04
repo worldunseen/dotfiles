@@ -1,0 +1,10 @@
+---
+- name: Set up apps for communication
+  ansible.builtin.import_tasks: communication.yaml
+
+- name: Set up apps for writing prose
+  ansible.builtin.import_tasks: prose.yaml
+
+- name: Set up password manager
+  ansible.builtin.import_tasks: password_manager.yaml
+  

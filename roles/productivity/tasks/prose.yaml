@@ -1,0 +1,6 @@
+---
+- name: Ensure that Apostrophe is present
+  become: true
+  ansible.builtin.dnf:
+    name: apostrophe
+    state: present
