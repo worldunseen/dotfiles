@@ -1,0 +1,18 @@
+---
+# Source: https://gist.github.com/carlwgeorge/c560a532b6929f49d9c0df52f75a68ae
+#
+# To determine what dconf keys and values to use, you can run `dconf watch /`
+# in a terminal as you make changes in settings or tweaks. You can also use
+# `dconf read <key>` and `dconf write <key> <value>` to experiment with various
+# settings. The dconf-editor application is also useful for exploring various
+# keys along with their descriptions.
+
+- name: Ensure required dependencies are present for Ansible
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - dbus-daemon
+      - dbus-tools
+      - dconf
+      - python3-psutil
+    state: present

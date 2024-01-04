@@ -1,0 +1,6 @@
+---
+- name: Set up general settings
+  ansible.builtin.import_tasks: general.yaml
+
+- name: Set up extensions
+  ansible.builtin.import_tasks: extensions.yaml

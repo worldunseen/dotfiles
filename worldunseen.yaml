@@ -6,4 +6,5 @@
     user_name: worldunseen
     email: world@unseen.dev
   roles:
+    - gnome
     - development
