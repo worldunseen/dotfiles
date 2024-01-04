@@ -2,8 +2,5 @@
 - name: Set up Git
   ansible.builtin.include_tasks: git.yaml
 
-- name: Ensure linting tool for Ansible is present
-  become: true
-  ansible.builtin.dnf:
-    name: ansible-lint
-    state: present
+- name: Set up Ansible tooling
+  ansible.builtin.import_tasks: ansible.yaml

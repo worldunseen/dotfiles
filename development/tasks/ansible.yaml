@@ -1,0 +1,6 @@
+---
+- name: Ensure linting tool for Ansible is present
+  become: true
+  ansible.builtin.dnf:
+    name: ansible-lint
+    state: present
