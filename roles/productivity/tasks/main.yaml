@@ -7,4 +7,3 @@
 
 - name: Set up password manager
   ansible.builtin.import_tasks: password_manager.yaml
-  
