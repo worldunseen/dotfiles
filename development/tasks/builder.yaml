@@ -1,0 +1,7 @@
+---
+- name: Ensure Builder IDE is present
+  become: true
+  ansible.builtin.dnf:
+    name: gnome-builder
+
+# TODO: IDE settings
