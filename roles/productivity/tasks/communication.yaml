@@ -6,3 +6,8 @@
       - thunderbird
       - thunderbird-wayland
     state: present
+
+- name: Ensure that Tangram is present
+  community.general.flatpak:
+    name: re.sonny.Tangram
+    state: present
