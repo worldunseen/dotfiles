@@ -1,0 +1,9 @@
+---
+- name: Deploy configuration
+  hosts: localhost
+  vars:
+    full_name: world
+    user_name: worldunseen
+    email: world@unseen.dev
+  roles:
+    - development
