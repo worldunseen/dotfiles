@@ -1,24 +1,24 @@
 ---
 - name: Enable night light
   community.general.dconf:
-    key: "/org/gnome/settings-daemon/plugins/color/night-light-enabled"
+    key: /org/gnome/settings-daemon/plugins/color/night-light-enabled
     value: true
     state: present
 
 - name: Disable mouse acceleration
   community.general.dconf:
-    key: "/org/gnome/desktop/peripherals/mouse/accel-profile"
+    key: /org/gnome/desktop/peripherals/mouse/accel-profile
     value: "'default'"
     state: present
 
 - name: Disable middle-click paste
   community.general.dconf:
-    key: "/org/gnome/desktop/interface/gtk-enable-primary-paste"
+    key: /org/gnome/desktop/interface/gtk-enable-primary-paste
     value: false
     state: present
 
 - name: Shrink file icon size
   community.general.dconf:
-    key: "/org/gnome/nautilus/icon-view/default-zoom-level"
+    key: /org/gnome/nautilus/icon-view/default-zoom-level
     value: "'small-plus'"
     state: present
