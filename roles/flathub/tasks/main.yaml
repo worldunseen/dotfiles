@@ -1,0 +1,13 @@
+---
+- name: Ensure that Flatpak is present
+  become: true
+  ansible.builtin.dnf:
+    name: flatpak
+    state: present
+
+- name: Ensure that Flathub remote is present
+  become: true
+  community.general.flatpak_remote:
+    name: flathub
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+    state: present
