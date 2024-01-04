@@ -16,3 +16,15 @@
     git_config_data:
       user.name: "{{ full_name }}"
       user.email: "{{ email }}"
+
+- name: Ensure that Commit message editor is present
+  community.general.flatpak:
+    name: re.sonny.Commit
+    state: present
+
+- name: Use Commit as editor by default when committing
+  community.general.git_config:
+    name: core.editor
+    value: flatpak run re.sonny.Commit
+    scope: global
+    state: present
