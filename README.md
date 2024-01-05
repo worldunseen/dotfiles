@@ -1,5 +1,5 @@
 # dotfiles
 
 ```
-ansible-playbook -K worldunseen.yaml
+ansible-playbook -K dotfiles.yaml
 ```
