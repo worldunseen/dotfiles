@@ -15,5 +15,10 @@
       - lame-devel
     state: present
 
-# TODO: Add 'intel-media-driver' task? VAAPI support?
-# See https://rpmfusion.org/Howto/Multimedia for details.
+# https://rpmfusion.org/Howto/Multimedia
+- name: Ensure that Intel hardware acceleration is present
+  become: true
+  ansible.builtin.dnf:
+    name: intel-media-driver
+    state: present
+  when: ansible_processor_is_intel

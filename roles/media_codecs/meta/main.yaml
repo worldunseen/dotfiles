@@ -1,0 +1,6 @@
+---
+dependencies:
+  - role: rpm_fusion
+    vars:
+      rpm_fusion_non_free_is_enabled: true
+    when: ansible_processor_is_intel
