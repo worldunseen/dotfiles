@@ -1,0 +1,4 @@
+---
+- name: Define custom processor facts
+  ansible.builtin.set_fact:
+    ansible_processor_is_intel: "{{ ansible_processor is contains('GenuineIntel') }}"
