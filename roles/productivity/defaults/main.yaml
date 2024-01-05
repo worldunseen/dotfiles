@@ -1,0 +1,2 @@
+---
+keepassxc_config_file_location: "{{ ansible_env.HOME }}/.config/keepassxc/keepassxc.ini"

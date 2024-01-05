@@ -6,4 +6,4 @@
   ansible.builtin.import_tasks: prose.yaml
 
 - name: Set up password manager
-  ansible.builtin.import_tasks: password_manager.yaml
+  ansible.builtin.include_tasks: password_manager.yaml
