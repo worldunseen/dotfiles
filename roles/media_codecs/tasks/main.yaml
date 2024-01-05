@@ -19,6 +19,8 @@
 - name: Ensure that Intel hardware acceleration is present
   become: true
   ansible.builtin.dnf:
-    name: intel-media-driver
+    name:
+      - intel-media-driver
+      - gstreamer1-vaapi
     state: present
   when: ansible_processor_is_intel
