@@ -19,5 +19,6 @@
   roles:
     - gnome
     - development
+    - auth
     - productivity
     - media_codecs

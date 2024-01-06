@@ -28,6 +28,7 @@ Tested on a Lenovo ThinkPad T14 Gen 4 (Intel) running Fedora 39.
 
 |     Role     |                                                  Description                                                  |
 |:------------:|:-------------------------------------------------------------------------------------------------------------:|
+| auth         | Installs and configures common tools I use for authentication.                                                |
 | dconf        | Installs the required dependencies in order to use Ansible to edit dconf configurations.                      |
 | development  | Installs and configures common tools I use for software development.                                          |
 | flathub      | Enables Flathub repositories. Include as a role dependency when installing Flatpak applications from Flathub. |
