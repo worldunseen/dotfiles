@@ -8,9 +8,13 @@ Automatically configures all my settings using Ansible.
 ./setup.sh
 ```
 
-## Support
+## Requirements
 
-Only the standard Fedora Workstation setup is currently supported. Tested on a Lenovo ThinkPad T14 Gen 4 (Intel) running Fedora 39.
+- Fedora Workstation
+- Ansible (`dnf install ansible`)
+- User running Ansible should have `sudo` permissions
+
+Tested on a Lenovo ThinkPad T14 Gen 4 (Intel) running Fedora 39.
 
 ## Highlights
 
