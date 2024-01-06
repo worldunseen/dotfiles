@@ -1,0 +1,23 @@
+---
+- name: Pre-deploy configuration
+  hosts: localhost
+  tasks:
+    - name: Define required custom facts
+      ansible.builtin.import_tasks: tasks/custom_facts.yaml
+
+- name: Deploy worldunseen dotfiles
+  hosts: localhost
+  gather_facts: false
+  vars:
+    full_name: world
+    user_name: worldunseen
+    email: world@unseen.dev
+  pre_tasks:
+    - name: End play if current user is not world
+      ansible.builtin.meta: end_play
+      when: ansible_facts["user_id"] != "world"
+  roles:
+    - gnome
+    - development
+    - productivity
+    - media_codecs
