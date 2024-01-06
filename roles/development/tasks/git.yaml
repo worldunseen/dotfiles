@@ -28,3 +28,8 @@
     value: flatpak run re.sonny.Commit
     scope: global
     state: present
+
+- name: Ensure that Gittyup Git client is installed
+  community.general.flatpak:
+    name: com.github.Murmele.Gittyup
+    state: present
