@@ -10,7 +10,7 @@ Automatically configures all my settings using Ansible.
 
 ## Support
 
-The only operating system that is currently supported is the standard Fedora Workstation desktop (with GNOME). Tested on a Lenovo ThinkPad T14 Gen 4 (Intel) running Fedora 39.
+Only the standard Fedora Workstation setup is currently supported. Tested on a Lenovo ThinkPad T14 Gen 4 (Intel) running Fedora 39.
 
 ## Highlights
 
@@ -19,6 +19,36 @@ The only operating system that is currently supported is the standard Fedora Wor
 - Out-of-the-box video codec and hardware acceleration support
 - Only imports new repositories (Flathub, RPM Fusion, etc.) if required for installing applications
 - Minimal manual intervention, if it can be automated by Ansible it will
+
+## Roles
+
+| Role           | Description                                                                                                   |
+|----------------|---------------------------------------------------------------------------------------------------------------|
+| `dconf`        | Installs the required dependencies in order to use Ansible to edit dconf configurations.                      |
+| `development`  | Installs and configures common tools I use for software development.                                          |
+| `flathub`      | Enables Flathub repositories. Include as a role dependency when installing Flatpak applications from Flathub. |
+| `gnome`        | Sets up and configures GNOME desktop settings and extensions to my liking.                                    |
+| `media_codecs` | Installs libraries required to play audio/video. Enables VAAPI if supported (only on Intel for now).          |
+| `productivity` | Umbrella role to install tools I use to be 'productive.'                                                      |
+| `rpm_fusion`   | Enables RPM Fusion repositories. Only supports Fedora.                                                        |
+
+## Variables
+
+### Global
+
+#### Identity
+
+- `full_name`: The desired user's full name. Defaults to `anonymous`
+- `user_name`: The desired user's alias (can be different from the user). Defaults to `anon`
+- `email`: The desired user's email address. Defaults to `anon@example.com`
+
+#### Hardware
+
+- `ansible_processor_is_intel`: Boolean that is true if currently running hardware is detected as Intel.
+
+### `rpm_fusion`
+
+- `rpm_fusion_non_free_is_enabled`: Boolean that enables non-free repositories if set to true. Defaults to false
 
 ## Future roadmap
 
