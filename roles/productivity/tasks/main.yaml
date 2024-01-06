@@ -7,3 +7,8 @@
 
 - name: Set up password manager
   ansible.builtin.include_tasks: password_manager.yaml
+
+- name: Ensure that Errands to-do application is present
+  community.general.flatpak:
+    name: io.github.mrvladus.List
+    state: present
