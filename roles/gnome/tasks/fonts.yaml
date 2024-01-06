@@ -1,0 +1,24 @@
+---
+- name: Set default interface font
+  community.general.dconf:
+    key: /org/gnome/desktop/interface/font-name
+    value: "'{{ font_interface }}'"
+    state: present
+
+- name: Set default document font
+  community.general.dconf:
+    key: /org/gnome/desktop/interface/document-font-name
+    value: "'{{ font_interface }}'"
+    state: present
+
+- name: Set default monospace font
+  community.general.dconf:
+    key: /org/gnome/desktop/interface/monospace-font-name
+    value: "'{{ font_monospace }}'"
+    state: present
+
+- name: Set default font for legacy window titles
+  community.general.dconf:
+    key: /org/gnome/desktop/wm/preferences/titlebar-font
+    value: "'{{ font_legacy }}'"
+    state: present

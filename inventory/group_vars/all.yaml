@@ -3,3 +3,11 @@
 full_name: anonymous
 user_name: anon
 email: anon@example.com
+
+# Fonts
+#
+# Make sure to include the `fonts` role as a dependency if you use these
+# variables
+font_interface: Inter 11
+font_monospace: Intel One Mono 10
+font_legacy: Inter Bold 11

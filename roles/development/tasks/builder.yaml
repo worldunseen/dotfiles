@@ -4,4 +4,8 @@
   ansible.builtin.dnf:
     name: gnome-builder
 
-# TODO: IDE settings
+- name: Set Builder editor font
+  community.general.dconf:
+    key: /org/gnome/builder/editor/font-name
+    value: "'{{ font_monospace }}'"
+    state: present

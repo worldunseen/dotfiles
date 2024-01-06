@@ -1,0 +1,12 @@
+---
+- name: Ensure that Inter font is present
+  become: true
+  ansible.builtin.dnf:
+    name: rsms-inter-fonts
+    state: present
+
+- name: Ensure that Intel One Mono font is present
+  become: true
+  ansible.builtin.dnf:
+    name: intel-one-mono-fonts
+    state: present

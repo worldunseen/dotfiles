@@ -26,15 +26,16 @@ Tested on a Lenovo ThinkPad T14 Gen 4 (Intel) running Fedora 39.
 
 ## Roles
 
-| Role           | Description                                                                                                   |
-|----------------|---------------------------------------------------------------------------------------------------------------|
-| `dconf`        | Installs the required dependencies in order to use Ansible to edit dconf configurations.                      |
-| `development`  | Installs and configures common tools I use for software development.                                          |
-| `flathub`      | Enables Flathub repositories. Include as a role dependency when installing Flatpak applications from Flathub. |
-| `gnome`        | Sets up and configures GNOME desktop settings and extensions to my liking.                                    |
-| `media_codecs` | Installs libraries required to play audio/video. Enables VAAPI if supported (only on Intel for now).          |
-| `productivity` | Umbrella role to install tools I use to be 'productive.'                                                      |
-| `rpm_fusion`   | Enables RPM Fusion repositories. Only supports Fedora.                                                        |
+|     Role     |                                                  Description                                                  |
+|:------------:|:-------------------------------------------------------------------------------------------------------------:|
+| dconf        | Installs the required dependencies in order to use Ansible to edit dconf configurations.                      |
+| development  | Installs and configures common tools I use for software development.                                          |
+| flathub      | Enables Flathub repositories. Include as a role dependency when installing Flatpak applications from Flathub. |
+| fonts        | Installs various fonts, including fonts required for `font_*` variable references.                            |
+| gnome        | Sets up and configures GNOME desktop settings and extensions to my liking.                                    |
+| media_codecs | Installs libraries required to play audio/video. Enables VAAPI if supported (only on Intel for now).          |
+| productivity | Umbrella role to install tools I use to be ‘productive.’                                                      |
+| rpm_fusion   | Enables RPM Fusion repositories. Only supports Fedora.                                                        |
 
 ## Variables
 
@@ -45,6 +46,14 @@ Tested on a Lenovo ThinkPad T14 Gen 4 (Intel) running Fedora 39.
 - `full_name`: The desired user's full name. Defaults to `anonymous`
 - `user_name`: The desired user's alias (can be different from the user). Defaults to `anon`
 - `email`: The desired user's email address. Defaults to `anon@example.com`
+
+#### Fonts
+
+Variables are strings following the format `<Font Name> <Font Size>`. Make sure to include a role dependency on `fonts` if you are referencing any of these variables.
+
+- `font_interface`: The font to use for application interfaces.
+- `font_monospace`: The font to use for coding.
+- `font_legacy`: The font to use for legacy (e.g. GNOME legacy title bars) use cases.
 
 #### Hardware
 
