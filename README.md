@@ -33,7 +33,7 @@ Tested on a Lenovo ThinkPad T14 Gen 4 (Intel) running Fedora 39.
 | development  | Installs and configures common tools I use for software development.                                          |
 | flathub      | Enables Flathub repositories. Include as a role dependency when installing Flatpak applications from Flathub. |
 | fonts        | Installs various fonts, including fonts required for `font_*` variable references.                            |
-| gnome        | Sets up and configures GNOME desktop settings and extensions to my liking.                                    |
+| gnome        | Installs and configures GNOME desktop settings and extensions to my liking.                                   |
 | media_codecs | Installs libraries required to play audio/video. Enables VAAPI if supported (only on Intel for now).          |
 | productivity | Umbrella role to install tools I use to be ‘productive.’                                                      |
 | rpm_fusion   | Enables RPM Fusion repositories. Only supports Fedora.                                                        |
