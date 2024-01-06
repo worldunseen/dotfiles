@@ -9,3 +9,21 @@
     key: /org/gnome/builder/editor/font-name
     value: "'{{ font_monospace }}'"
     state: present
+
+- name: Set Builder color scheme
+  community.general.dconf:
+    key: /org/gnome/builder/editor/style-scheme-name
+    value: "'solarized-light'"
+    state: present
+
+- name: Set Builder interface style
+  community.general.dconf:
+    key: /org/gnome/builder/style-variant
+    value: "'light'"
+    state: present
+
+- name: Show grid lines in Builder
+  community.general.dconf:
+    key: /org/gnome/builder/editor/show-grid-lines
+    value: true
+    state: present
