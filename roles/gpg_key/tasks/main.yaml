@@ -1,0 +1,38 @@
+---
+- name: Import key
+  ansible.builtin.shell: |
+    gpg --batch --pinentry-mode loopback --status-fd 1 --with-colons --import << 'END OF FILE'
+    {{ gpg_private_key }}
+    END OF FILE
+  register: gpg_import_result
+  changed_when: gpg_import_result.stdout is not search('IMPORT_OK (0|16)')
+  failed_when: gpg_import_result.stdout is not search('IMPORT_OK')
+
+# https://github.com/gpg/gnupg/blob/master/doc/DETAILS#import_ok--reason-fingerprint
+- name: Extract codes from key import results
+  ansible.builtin.set_fact:
+    gpg_import_ok_list: "{{ (gpg_import_result.stdout | regex_findall('IMPORT_OK [0-9]+ [0-9A-F]{40}', multiline=true) | max | split(' '))[1:] }}"
+
+- name: Extract information about imported key
+  ansible.builtin.set_fact:
+    gpg_key_is_private: "{{ gpg_import_ok_list[0] | int >= 16 }}"
+    gpg_fingerprint: "{{ gpg_import_ok_list[1] }}"
+
+- name: Check fingerprint is valid
+  ansible.builtin.assert:
+    that:
+      - gpg_fingerprint | length == 40
+    quiet: true
+    msg: "Fingerprint is invalid: {{ gpg_fingerprint }}"
+
+- name: Check key is private
+  ansible.builtin.assert:
+    that:
+      - gpg_key_is_private
+    quiet: true
+    fail_msg: "Imported key was detected as a public key, not a private key."
+
+- name: Ultimately trust key
+  ansible.builtin.shell: "gpg --status-fd 1 --with-colons --import-ownertrust <<< {{ gpg_fingerprint }}:6:"
+  register: gpg_trust_result
+  changed_when: gpg_trust_result.stderr != ""

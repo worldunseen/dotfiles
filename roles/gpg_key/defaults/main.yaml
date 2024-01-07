@@ -1,0 +1,9 @@
+---
+# Please override variables with your own information.
+#
+# DO NOT PASS IN VARIABLES THROUGH CLEARTEXT!
+# ENCRYPT THROUGH ANSIBLE VAULT OR SOME OTHER MEANS!
+gpg_private_key: |
+  -----BEGIN PGP PRIVATE KEY BLOCK-----
+  ...
+  -----END PGP PRIVATE KEY BLOCK-----
