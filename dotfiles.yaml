@@ -25,3 +25,18 @@
     - auth
     - productivity
     - media_codecs
+
+- name: Deploy personal dotfiles
+  hosts: localhost
+  gather_facts: false
+  vars:
+    full_name: "{{ personal_id['full_name']}}"
+    user_name: "{{ personal_id['user_name']}}"
+    email: "{{ personal_id['email']}}"
+  pre_tasks:
+    - name: End play if current user is not personal
+      ansible.builtin.meta: end_play
+      when: ansible_facts["user_id"] != "personal"
+  roles:
+    - gnome
+    - development
