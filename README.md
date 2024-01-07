@@ -85,9 +85,6 @@ Variables are strings following the format `<Font Name> <Font Size>`. Make sure 
 
 ## Future roadmap
 
-- Enable KeePassXC secret service integration
-  - https://avaldes.co/2020/01/28/secret-service-keepassxc.html
-  - https://wiki.chucknemeth.com/linux/security/keyring/keepassxc-keyring
 - Install and set up Intellij
   - Ideavimrc
   - https://github.com/MarcoIeni/intellimacs
