@@ -36,3 +36,17 @@
   ansible.builtin.shell: "gpg --status-fd 1 --with-colons --import-ownertrust <<< {{ gpg_fingerprint }}:6:"
   register: gpg_trust_result
   changed_when: gpg_trust_result.stderr != ""
+
+- name: Sign Git commits with GPG key by default
+  community.general.git_config:
+    name: commit.gpgsign
+    value: true
+    scope: global
+    state: present
+
+- name: Use imported key to sign commits by default
+  community.general.git_config:
+    name: user.signingkey
+    value: "{{ gpg_fingerprint }}"
+    scope: global
+    state: present
