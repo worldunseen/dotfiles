@@ -6,4 +6,4 @@ then
   exit 1
 fi
 
-ansible-playbook dotfiles.yaml
+ansible-playbook "$@" dotfiles.yaml
