@@ -30,7 +30,7 @@
     that:
       - gpg_key_is_private
     quiet: true
-    fail_msg: "Imported key was detected as a public key, not a private key."
+    fail_msg: "Imported key was detected as a public key, not a private key: {{ gpg_fingerprint }}."
 
 - name: Ultimately trust key
   ansible.builtin.shell: "gpg --status-fd 1 --with-colons --import-ownertrust <<< {{ gpg_fingerprint }}:6:"
