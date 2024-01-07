@@ -67,7 +67,7 @@ Variables are strings following the format `<Font Name> <Font Size>`. Make sure 
     -----END PGP PRIVATE KEY BLOCK-----
   ```
 
-  **Do not store this variable in plain text.** Use a solution like Ansible Vault to encrypt data at rest. See <secrets/README.md> for a potential approach.
+  **Do not store this variable in plain text.** Use a solution like Ansible Vault to encrypt data at rest. See [this](secrets/README.md) for a potential approach.
 
 #### rpm_fusion
 
