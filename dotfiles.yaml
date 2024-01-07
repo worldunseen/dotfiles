@@ -22,7 +22,9 @@
     - role: gpg_key
       vars:
         gpg_private_key: "{{ worldunseen_private_key }}"
-    - auth
+    - role: auth
+      vars:
+        secret_service_integration_is_enabled: true
     - productivity
     - media_codecs
 

@@ -56,6 +56,10 @@ Variables are strings following the format `<Font Name> <Font Size>`. Make sure 
 
 ### Roles
 
+#### auth
+
+- `secret_service_integration_is_enabled` - Boolean that disables GNOME keyring and enables custom Secret Service integration with password manager if set to true. Defaults to false
+
 #### gpg_key
 
 - `gpg_private_key` - The armored (ASCII) private key to import, represented as a string. Formatting should look like this:

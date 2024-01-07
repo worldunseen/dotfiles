@@ -1,2 +1,6 @@
 ---
+secret_service_integration_is_enabled: false
+
+# Internal variables
+local_autostart_location: "{{ ansible_env.HOME }}/.config/autostart"
 keepassxc_config_file_location: "{{ ansible_env.HOME }}/.config/keepassxc/keepassxc.ini"

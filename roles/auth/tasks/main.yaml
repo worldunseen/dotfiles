@@ -1,3 +1,7 @@
 ---
 - name: Set up password manager
   ansible.builtin.include_tasks: password_manager.yaml
+
+- name: Enable Secret Service support
+  ansible.builtin.include_tasks: secret_service.yaml
+  when: secret_service_integration_is_enabled
