@@ -5,4 +5,5 @@ secret_service_integration_is_enabled: false
 local_autostart_location: "{{ ansible_env.HOME }}/.config/autostart"
 local_user_systemd_location: "{{ ansible_env.HOME }}/.config/systemd/user"
 local_user_dbus_location: "{{ ansible_env.HOME }}/.local/share/dbus-1/services"
+local_bash_profile_location: "{{ ansible_env.HOME }}/.bash_profile"
 keepassxc_config_file_location: "{{ ansible_env.HOME }}/.config/keepassxc/keepassxc.ini"
