@@ -4,25 +4,18 @@ Automatically configures all my settings using Ansible.
 
 ## TL;DR
 
-```
-./setup.sh
-```
+1. Add your required Vault variable files to the `secrets` directory.
+2. Run `setup.sh`.
+3. Enter your `sudo` and Vault passwords.
+4. Reboot.
 
 ## Requirements
 
-- Fedora Workstation
+- Fedora Workstation (GNOME)
 - Ansible (`dnf install ansible`)
 - User running Ansible should have `sudo` permissions
 
 Tested on a Lenovo ThinkPad T14 Gen 4 (Intel) running Fedora 39.
-
-## Highlights
-
-- Strives to maintain vanilla GNOME behavior, including using default applications
-- Separate profiles (`worldunseen`, `personal`, etc.) that run depending on current account username
-- Out-of-the-box video codec and hardware acceleration support
-- Only imports new repositories (Flathub, RPM Fusion, etc.) if required for installing applications
-- Minimal manual intervention, if it can be automated by Ansible it will
 
 ## Roles
 
@@ -34,6 +27,7 @@ Tested on a Lenovo ThinkPad T14 Gen 4 (Intel) running Fedora 39.
 | flathub      | Enables Flathub repositories. Include as a role dependency when installing Flatpak applications from Flathub. |
 | fonts        | Installs various fonts, including fonts required for `font_*` variable references.                            |
 | gnome        | Installs and configures GNOME desktop settings and extensions to my liking.                                   |
+| gpg_key      | Import GPG key an from armored private key.                                                                   |
 | media_codecs | Installs libraries required to play audio/video. Enables VAAPI if supported (only on Intel for now).          |
 | productivity | Umbrella role to install tools I use to be ‘productive.’                                                      |
 | rpm_fusion   | Enables RPM Fusion repositories. Only supports Fedora.                                                        |
@@ -60,13 +54,33 @@ Variables are strings following the format `<Font Name> <Font Size>`. Make sure 
 
 - `ansible_processor_is_intel`: Boolean that is true if currently running hardware is detected as Intel.
 
-### `rpm_fusion`
+### Roles
+
+#### gpg_key
+
+- `gpg_private_key` - The armored (ASCII) private key to import, represented as a string. Formatting should look like this:
+
+  ```yaml
+  gpg_private_key: |
+    -----BEGIN PGP PRIVATE KEY BLOCK-----
+    ...
+    -----END PGP PRIVATE KEY BLOCK-----
+  ```
+
+  **Do not store this variable in plain text.** Use a solution like Ansible Vault to encrypt data at rest. See <secrets/README.md> for a potential approach.
+
+#### rpm_fusion
 
 - `rpm_fusion_non_free_is_enabled`: Boolean that enables non-free repositories if set to true. Defaults to false
 
+## Make it your own
+
+1. Fork/clone this repo.
+2. Replace the contents of `dotfiles.yaml` with your own playbook. Feel free to reuse the roles!
+3. Make changes to existing roles, or make new ones!
+
 ## Future roadmap
 
-- Set up GPG keys and enable signing commits automatically if present
 - Enable KeePassXC secret service integration
   - https://avaldes.co/2020/01/28/secret-service-keepassxc.html
   - https://wiki.chucknemeth.com/linux/security/keyring/keepassxc-keyring
