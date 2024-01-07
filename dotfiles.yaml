@@ -19,6 +19,9 @@
   roles:
     - gnome
     - development
+    - role: gpg_key
+      vars:
+        gpg_private_key: "{{ worldunseen_private_key }}"
     - auth
     - productivity
     - media_codecs
