@@ -4,3 +4,8 @@
   ansible.builtin.dnf:
     name: apostrophe
     state: present
+
+- name: Ensure that Logseq is present
+  community.general.flatpak:
+    name: com.logseq.Logseq
+    state: present
