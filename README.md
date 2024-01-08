@@ -5,9 +5,8 @@ Automatically configures all my settings using Ansible.
 ## TL;DR
 
 1. Add your required Vault variable files to the `secrets` directory.
-2. Run `setup.sh`.
-3. Enter your `sudo` and Vault passwords.
-4. Reboot.
+2. Run `setup.sh`. Enter your `sudo` and Vault passwords.
+3. Reboot after finishing setup.
 
 ## Requirements
 
