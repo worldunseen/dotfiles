@@ -1,0 +1,7 @@
+---
+# Used for Honorlock assessments
+- name: Ensure that Chromium is present
+  become: true
+  ansible.builtin.dnf:
+    name: chromium
+    state: present
