@@ -10,6 +10,12 @@
     value: "'{{ font_monospace }}'"
     state: present
 
+- name: Set Builder terminal font
+  community.general.dconf:
+    key: /org/gnome/builder/terminal/font-name
+    value: "'{{ font_monospace }}'"
+    state: present
+
 - name: Set Builder color scheme
   community.general.dconf:
     key: /org/gnome/builder/editor/style-scheme-name
