@@ -9,3 +9,15 @@
   community.general.flatpak:
     name: com.logseq.Logseq
     state: present
+
+- name: Ensure that Pandoc is present
+  become: true
+  ansible.builtin.dnf:
+    name: pandoc
+    state: present
+
+- name: Ensure that Latex is present
+  become: true
+  ansible.builtin.dnf:
+    name: texlive-scheme-basic
+    state: present
