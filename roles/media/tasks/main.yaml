@@ -1,0 +1,18 @@
+---
+- name: Ensure that Amberol music player is present
+  community.general.flatpak:
+    name: io.bassi.Amberol
+    state: present
+
+- name: Ensure that yt-dlp is present
+  become: true
+  ansible.builtin.dnf:
+    name: yt-dlp
+    state: present
+
+# Use to access my homelab NFS shares
+- name: Ensure that NFS mounting is supported
+  become: true
+  ansible.builtin.dnf:
+    name: gvfs-smb
+    state: present
