@@ -9,3 +9,8 @@
   community.general.flatpak:
     name: io.github.mrvladus.List
     state: present
+
+- name: Ensure that Anki is present
+  community.general.flatpak:
+    name: net.ankiweb.Anki
+    state: present
