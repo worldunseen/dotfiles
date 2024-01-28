@@ -1,0 +1,13 @@
+---
+- name: Ensure that Syncthing is present
+  become: true
+  ansible.builtin.dnf:
+    name: syncthing
+    state: present
+
+- name: Start Syncthing on boot
+  ansible.builtin.systemd_service:
+    name: syncthing
+    scope: user
+    enabled: true
+    state: started

@@ -87,6 +87,5 @@ Variables are strings following the format `<Font Name> <Font Size>`. Make sure 
 - Install and set up Intellij
   - Ideavimrc
   - https://github.com/MarcoIeni/intellimacs
-- Set up Syncthing
 - Set up Homelab VPN client endpoint
 

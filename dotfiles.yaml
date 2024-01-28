@@ -28,6 +28,7 @@
     - productivity
     - media
     - media_codecs
+    - file_sync
 
 - name: Deploy personal dotfiles
   hosts: localhost
@@ -45,3 +46,4 @@
     - development
     - auth
     - academia
+    - file_sync
